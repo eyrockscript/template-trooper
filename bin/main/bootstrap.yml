@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ms-template
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+# For SIEM (Graylog) integration
+siem:
+  host: 127.0.0.1
+  port: 12201
