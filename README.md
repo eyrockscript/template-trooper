@@ -49,9 +49,9 @@ Configuration
 
 The project uses a `GlobalExceptionHandler` class to handle all exceptions occurring in the application. Any exception thrown within the application will be handled in this class, and the exception information will be sent to the logs and to graylog.
 
-javaCopy code
+```
 
-`@Slf4j
+@Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -60,7 +60,8 @@ public class GlobalExceptionHandler {
         log.error("internal server error", ex);
         return new ResponseEntity<>("An error occurred: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}`
+}
+```
 
 ### Logback
 
@@ -87,27 +88,34 @@ How to use this template
 
 3.  Run the project using Gradle:
 
-bashCopy code
 
-`./gradlew bootRun`
+```
+./gradlew bootRun
+```
+
 
 1.  Package the project into a JAR using Gradle:
 
-bashCopy code
 
-`./gradlew build`
+```
+
+./gradlew build
+```
+
 
 1.  Build the Docker image:
 
-bashCopy code
+```
+docker build -t microservice-template .
+```
 
-`docker build -t microservice-template .`
 
 1.  Run the Docker image:
 
-bashCopy code
+```
+docker run -p 8080:8080 microservice-template
+```
 
-`docker run -p 8080:8080 microservice-template`
 
 This will start the microservice on port 8080.
 
